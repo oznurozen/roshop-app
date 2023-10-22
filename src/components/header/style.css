@@ -1,0 +1,31 @@
+.searchInput{
+    background-color: rgb(228, 228, 228);
+    padding: 7px;
+    border-radius: 20px;
+}
+.searchInput input{
+    border: none;
+    background-color: rgb(228, 228, 228);
+    color: white;
+    padding: 2px;
+}
+.searchInput input::placeholder{
+    color: rgb(89, 89, 89);
+}
+.icon{
+    padding: 8px;
+}
+.icon .basket{    
+    display: inline-block;
+    width: 15px ;
+    height: 15px;
+    border: 1px solid rgb(33, 33, 33);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 9px;
+    position: relative;
+    top: -6px;
+    right: -35px;
+    background-color: red;
+    color: white;
+}
