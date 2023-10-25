@@ -3,7 +3,7 @@ import {Col} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../redux/categorySlice';
 
-function Category() {
+function Category({setCategory}) {
     const dispatch = useDispatch();
     const {categories} = useSelector(state => state.categories)
 
@@ -17,7 +17,7 @@ function Category() {
         <div className='fs-4 fw-bolder pb-2'>KATEGORİ</div>
             {
                 categories?.map((category,i)=> (
-                    <div className='category' key={i}>{category}</div>
+                    <div onClick={() => setCategory(category)} className='category' key={i}>{category}</div>
                 ))
             }
         

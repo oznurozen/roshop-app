@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Container, Form, Nav, Navbar} from 'react-bootstrap';
 import {SlBasket} from 'react-icons/sl';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {BiSearch} from 'react-icons/bi';
 import './style.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartTotal } from '../../redux/cardSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Header() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const {itemCount} = useSelector(state => state.carts)
+
+  // console.log(carts, "carts");
+
+  useEffect(()=> {
+    dispatch(getCartTotal())
+  },[dispatch])
   return (
     <div>
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -38,8 +50,8 @@ function Header() {
               <AiOutlineHeart size={28}/>
             </div>
             
-            <div className='icon'>
-              <div className='basket' >5</div>
+            <div onClick={() => navigate("cart")} className='icon'>
+              <div className='basket' >{itemCount}</div>
               <SlBasket size={28}/>
             </div>
           </Form>

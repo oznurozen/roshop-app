@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Header from './components/header';
+import Detail from './pages/Detail';
+import Cart from './pages/Cart';
 
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
         < Header />
         <Routes>
           <Route path='/' element= {< Home />} />
+          <Route path='/products/:id' element= {< Detail />} />
+          <Route path='/cart' element= {< Cart />} />
         </Routes>
       </Router>
  
