@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState= {
-    categories: []
+const initialState= { //bu bizim için başlangıç durumlarını temsil ediyor
+    categories: [] // kategorilerle alakalı ilk başta bilgim yok bunları array içerisinde saklamak istiyorum
 }
 
 export const getCategories = createAsyncThunk('category', async() =>{
@@ -13,9 +13,9 @@ export const getCategories = createAsyncThunk('category', async() =>{
 const categorySlice = createSlice({
     name: "categories",
     initialState,
-    reducers: {},
-    extraReducers : (builder) =>{
-        builder
+    reducers: {}, // burası api kullanılmadan sayfa içerisinde statik olarak yapılan v eriler için geçerli
+    extraReducers : (builder) =>{ //dısarıdan bir tane builder alıcak
+        builder // ve her builder üzerinden appCase ekleyeceğim
         .addCase(getCategories.fulfilled, (state, action)=>{
             state.categories = action.payload;
         })
