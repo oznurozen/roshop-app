@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Col, Card, Button, Row} from 'react-bootstrap';
+import {Col,Row} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategoryProducts, getProducts } from '../../redux/productSlice';
 import Loading from "../Loading";
@@ -47,18 +47,9 @@ function Products({category, sort}) {
           <>
             {
               currentItems?.sort((a,b)=>sort === "inc" ? a.price-b.price: sort === "dec" ? b.price-a.price : "")?.map((product,i)=>(
-                <Col xl={4} lg={6} sm={12}>
-                  <Card className='mt-2 text-center'>
-                      <Product key={i} product={product}/>
-                    <Card.Body>
-                      <Card.Title>{product?.title}</Card.Title>
-                      <Card.Text>
-                        {product?.price} <span>TL</span>
-                      </Card.Text>
-                      <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                  </Card>
-                </Col>     
+                
+              <Product key={i} product={product}/>
+                        
               ))
             }
             <ReactPaginate
