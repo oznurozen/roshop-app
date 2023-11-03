@@ -5,6 +5,9 @@ import { removeFromCart } from '../../redux/cardSlice';
 
 function CartComp({cart}) {
   const dispatch = useDispatch();
+  function refreshPage() {
+    window.location.reload(false);
+  }
   return (
     <Container>
       <div className="card mb-3 mt-5">
@@ -17,7 +20,7 @@ function CartComp({cart}) {
                     <div className="card-body">
                       {cart?.title}  &nbsp;&nbsp;&nbsp;&nbsp; {cart?.price} <span>TL</span> 
                       ({cart?.quantity}) &nbsp;&nbsp;&nbsp;&nbsp; 
-                      <span onClick={() => dispatch(removeFromCart(cart?.id))} className='btn btn-danger'>Ürünü Sil</span></div>
+                      <span onClick={() => dispatch(removeFromCart(cart?.id, refreshPage()))} className='btn btn-danger'>Ürünü Sil</span></div>
                 </div>
                 </div>
             </div>
